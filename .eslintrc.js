@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     "comma-dangle": ["error", "always-multiline"],
     "no-console": ["warn", { allow: ["warn", "error"]}],
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "vue/no-unused-components": "warn",
   }
 }
