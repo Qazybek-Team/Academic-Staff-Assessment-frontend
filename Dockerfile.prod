@@ -1,0 +1,20 @@
+FROM node:12
+
+RUN mkdir -p /app
+WORKDIR /app
+
+# install dependencies
+COPY package.json package-lock.json /app/
+RUN npm install
+
+# copy the project code
+COPY . /app/
+
+# Build the project
+RUN npm run build
+
+# expose the server port
+EXPOSE 3000
+
+# define the default command to run when starting the container
+CMD ["npm", "start"]
