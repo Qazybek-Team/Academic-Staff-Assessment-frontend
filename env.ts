@@ -1,5 +1,5 @@
 export const BASE_URL = process.server
-  ? 'http://backend:1202'
-  : 'http://localhost';
+  ? process.env.BASE_URL_SERVER
+  : process.env.BASE_URL_BROWSER;
 
 export const API_URL = BASE_URL + '/api/v1';

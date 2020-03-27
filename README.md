@@ -20,3 +20,5 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+The enviroment variables `BASE_URL_SERVER` and `BASE_URL_BROWSER` have to be set. They should point to the backend from the respective environments.
