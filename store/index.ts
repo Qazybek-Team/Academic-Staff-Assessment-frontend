@@ -8,7 +8,7 @@ export const state = () => ({
 export type RootState = ReturnType<typeof state>;
 
 export const getters: GetterTree<RootState, RootState> = {
-
+  authenticated: state => state.user != null,
 };
 
 export const mutations: MutationTree<RootState> = {
@@ -24,8 +24,8 @@ export const actions: ActionTree<RootState, RootState> = {
       headers: {
         cookie: headers.cookie,
       },
-    });
-    if (!res.ok) {
+    }).catch(console.error);
+    if (res == null || !res.ok) {
       return;
     }
     const json = await res.json();
