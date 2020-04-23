@@ -5,15 +5,16 @@
       fixed
       app
     >
-      <v-btn
-        icon
-        to="/"
-        nuxt
-      >
-        <!-- TODO: replace with logo -->
-        IU
-      </v-btn>
-      <v-toolbar-title>Academic Staff Assessment</v-toolbar-title>
+      <v-toolbar-title>
+        <v-btn
+          icon
+          to="/"
+          nuxt
+        >
+          <v-img :src="require('@/assets/IU_logo.svg')" max-width="40" />
+        </v-btn>
+        Academic Staff Assessment
+      </v-toolbar-title>
       <v-spacer />
       <v-btn
         icon
