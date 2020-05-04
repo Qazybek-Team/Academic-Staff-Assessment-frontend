@@ -12,7 +12,7 @@
         <v-layout row>
           <v-flex
             v-for="form in forms"
-            :key="form.course+form.title"
+            :key="form.id"
             style="padding: 0.5em;"
             xs12
             sm6
@@ -30,18 +30,18 @@
 import Vue from 'vue';
 import { mapState } from 'vuex';
 
-import FormCard from '@/components/dashboard/FormCard';
+import FormCard from '@/components/dashboard/FormCard.vue';
 
 export default Vue.extend({
   components: {
     FormCard,
   },
-  data () {
+  asyncData () {
     return {
       forms: [
-        { course: 'AI', title: 'Week 10', progress: 0 },
-        { course: 'DMDII', title: 'Week 11', progress: 25 },
-        { course: 'AI', title: 'Week 9', progress: 80 },
+        { id: 1, course: 'AI', title: 'Week 10', progress: 0 },
+        { id: 2, course: 'DMDII', title: 'Week 11', progress: 25 },
+        { id: 3, course: 'AI', title: 'Week 9', progress: 80 },
       ],
     };
   },
