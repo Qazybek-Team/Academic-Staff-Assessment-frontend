@@ -4,15 +4,22 @@
   >
     <v-form>
       <v-flex
-        v-for="q in questions"
+        v-for="(q, i) in questions"
         :key="q.id"
         xs12
         md11
       >
         <Question
+          v-model="answers[i]"
           v-bind="q"
         />
       </v-flex>
+      <v-btn v-if="completed" @click="submit">
+        Submit
+      </v-btn>
+      <v-btn v-else @click="save">
+        Save for later
+      </v-btn>
     </v-form>
   </v-layout>
 </template>
@@ -35,5 +42,24 @@ export default Vue.extend({
       ],
     };
   },
+  data () {
+    return {
+      answers: [] as string[],
+    };
+  },
+  computed: {
+    completed (): boolean {
+      return this.answers.every(a => a != null);
+    },
+  },
+  methods: {
+    save () {
+
+    },
+    submit () {
+
+    },
+  },
+  middleware: ['auth'],
 });
 </script>

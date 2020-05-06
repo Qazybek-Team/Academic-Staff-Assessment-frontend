@@ -2,9 +2,17 @@
   <v-card flat>
     <v-card-title>{{ questionText }}</v-card-title>
     <v-card-text>
-      <v-text-field v-if="type === 'text'" solo :hint="hint" />
-      <v-slider v-else-if="type === 'scalar'" step="5" :hint="hint" :ticks="true" thumb-label />
-      <v-radio-group v-else-if="type === 'mcq'">
+      <v-text-field v-if="type === 'text'" solo :value="value" :hint="hint" @change="$emit('input', $event)" />
+      <v-slider
+        v-else-if="type === 'scalar'"
+        step="5"
+        :value="value"
+        :hint="hint"
+        :ticks="true"
+        thumb-label
+        @change="$emit('input', $event)"
+      />
+      <v-radio-group v-else-if="type === 'mcq'" :value="value" @change="$emit('input', $event)">
         <v-radio v-for="option in options" :key="option" :value="option" :label="option" />
       </v-radio-group>
     </v-card-text>
@@ -41,6 +49,10 @@ export default Vue.extend({
       validator (options) {
         return this === undefined || this.type !== 'mcq' || options.length > 0;
       },
+    },
+    value: {
+      type: [String, Number],
+      default: '',
     },
   },
 });
