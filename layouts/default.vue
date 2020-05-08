@@ -32,7 +32,7 @@
       <v-btn
         v-else
         text
-        :href="`${base}/auth/login`"
+        :href="`${api}/auth/login?from=${base}`"
       >
         Sign in
       </v-btn>
@@ -54,12 +54,13 @@
 <script lang="ts">
 import Vue from 'vue';
 import { mapState, mapGetters } from 'vuex';
-import { API_URL } from '@/env';
+import { BASE_URL, API_URL } from '@/env';
 
 export default Vue.extend({
   data () {
     return {
-      base: API_URL,
+      base: BASE_URL,
+      api: API_URL,
     };
   },
   computed: {
